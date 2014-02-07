@@ -17,8 +17,8 @@
   (html5 [:head
           [:title "Demo"]
           [:style {:type "text/css"} (page-css)]]
-         [:body 
-          [:header.box] 
+         [:body
+          [:header.box]
           [:article.box]
           [:aside.box]
           [:footer.box]
@@ -34,13 +34,17 @@
        [:header
         {:background-color (nth palette 0)}
         {:flex "0 0 auto"}]
-       [:article         
+       [:article
         {:background-color (nth palette 1)}]
-       [:aside 
+       [:aside
         {:background-color (nth palette 2)}]
-       [:footer 
+       [:footer
         {:background-color (nth palette 3)}]
-       [:.box 
+       [:.box
         {:min-height (px 100)}
         {:width (px 200)}]))
 
+(defn ring-handler [request]
+  {:status 200
+   :headers {"Content-Type" "text/html"}
+   :body (page)})
